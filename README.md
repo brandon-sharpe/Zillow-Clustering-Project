@@ -23,7 +23,7 @@ Here is a random GIF as a placeholder.
 ![Random GIF](https://media.giphy.com/media/ZVik7pBtu9dNS/giphy.gif)
 
 # Table of contents
-
+<!-- Add a table of contents for your project -->
 After you have introduced your project, it is a good idea to add a **Table of contents** or **TOC** as **cool** people say it. This would make it easier for people to navigate through your README and find exactly what they are looking for.
 
 Here is a sample TOC(*wow! such cool!*) that is actually the TOC for this README.
@@ -32,17 +32,11 @@ Here is a sample TOC(*wow! such cool!*) that is actually the TOC for this README
 - [Executive Summary](#executive-summary)
 - [Table of contents](#table-of-contents)
 - [Data Science Pipeline](#data-science-pipline)
-    
-    -[Acquire](#acquire)
-    
-    -[Prepare](#prepare)
-    
-    -[Explore](#explore)
-    
-    -[Model](#model)
-    
-    -[Evaluate](#evaluate)
-
+    - [Acquire](#acquire)
+    - [Prepare](#prepare)
+    - [Explore](#explore)
+    - [Model](#model)
+    - [Evaluate](#evaluate)
 - [Conclusion](#conclusion)
 - [Footer](#footer)
 
