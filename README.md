@@ -46,11 +46,25 @@ I will also be placing the graphic that best represents my findings at the place
 # Data Science Pipeline
 [(Back to top)](#table-of-contents)
 <!-- Describe your Data Science Pipeline process -->
-Following best practices I documented my progress throughout the project and will provide quick summaries and thoughts here. For a further deepdive visit my (enter explore notebook here) & (enter final notebook here)
+Following best practices I documented my progress throughout the project and will provide quick summaries and thoughts here. For a further deep dive visit my (enter explore notebook here) & (enter final notebook here)
 
 ### Acquire
 [(Back to top)](#table-of-contents)
 <!-- Describe your acquire process -->
+The data was acquired from the Codeup MySQL server using the zillow database. I pulled every property from the properties_2017 table (later in prepare I will filter this down further) and joined the following tables:
+
+- airconditioningtype (for labeling purposes)
+- architecturalstyletype (for labeling purposes)
+- buildingclasstype (for labeling purposes)
+- heatingorsystemtype (for labeling purposes)
+- predictions_2017 (for logerror which will be our target)(( I also filtered by transaction date and parcel id to handle duplicates))
+
+My goal with this acquisition was to give me as much data as possible moving foward.
+At this point our data has
+* *77614 rows*
+* *74 columns*
+
+(for a dive into the acquire funtions refer to (insert link to wrangle.py here))
 
 ### Prepare
 [(Back to top)](#table-of-contents)
