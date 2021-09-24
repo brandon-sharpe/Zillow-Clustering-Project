@@ -27,6 +27,7 @@ I will also be placing the graphic that best represents my findings at the place
 - [Project Title](#project-title)
 - [Executive Summary](#executive-summary)
 - [Table of contents](#table-of-contents)
+- [Data Dictionary](#data-dictionary)
 - [Data Science Pipeline](#data-science-pipline)
     - [Acquire](#acquire)
     - [Prepare](#prepare)
@@ -35,7 +36,12 @@ I will also be placing the graphic that best represents my findings at the place
     - [Evaluate](#evaluate)
 - [Conclusion](#conclusion)
 - [Given More Time](#given-more-time)
+- [Recreate This Project](#recreate-this-project)
 - [Footer](#footer)
+
+# Data Dictionary
+[(Back to top)](#table-of-contents)
+<!-- Drop that sweet sweet dictionary here-->
 
 # Data Science Pipeline
 [(Back to top)](#table-of-contents)
@@ -72,7 +78,9 @@ Following best practices I documented my progress throughout the project and wil
 [(Back to top)](#table-of-contents)
 <!-- LET THEM KNOW WHAT YOU WISH YOU COULD HAVE DONE-->
 
-
+# Recreate This Project
+[(Back to top)](#table-of-contents)
+<!-- How can they do what you do?-->
 
 # Footer
 [(Back to top)](#table-of-contents)
