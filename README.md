@@ -32,11 +32,17 @@ Here is a sample TOC(*wow! such cool!*) that is actually the TOC for this README
 - [Executive Summary](#executive-summary)
 - [Table of contents](#table-of-contents)
 - [Data Science Pipeline](#data-science-pipline)
+    
     -[Acquire](#acquire)
+    
     -[Prepare](#prepare)
+    
     -[Explore](#explore)
+    
     -[Model](#model)
+    
     -[Evaluate](#evaluate)
+
 - [Conclusion](#conclusion)
 - [Footer](#footer)
 
