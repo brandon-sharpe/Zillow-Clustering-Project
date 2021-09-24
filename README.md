@@ -1,5 +1,5 @@
 <!-- Add banner here -->
-![Banner](https://github.com/navendu-pottekkat/awesome-readme/blob/master/header.png)
+![Banner](https://github.com/brandon-sharpe/Zillow-Clustering-Project/blob/main/Overview%20and%20Toolkit.gif)
 
 # Zillow-Clustering-Project
 
