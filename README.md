@@ -73,7 +73,7 @@ Performed the following on my acquired data.
 
 - dropped null values from columns and rows which had less than 50% of the values.
 - dropped all data from properties that where not single value homes
-    I quantified single family homes as properties with a propertylandusetypeid of:
+    - I quantified single family homes as properties with a propertylandusetypeid of:
         - 261	Single Family Residential
         - 262	Rural Residence
         - 263	Mobile Home
@@ -84,6 +84,7 @@ Performed the following on my acquired data.
         - 275	Manufactured, Modular, Prefabricated Homes
         - 276	Patio Home
         - 279	Inferred Single Family Residential
+        
 - dropped the duplicated columns pulled over from the sql inquiry
 - removed outliers from
     - calculatedfinishedsquarefeet
