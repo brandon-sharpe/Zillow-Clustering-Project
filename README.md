@@ -43,6 +43,31 @@ I will also be placing the graphic that best represents my findings at the place
 [(Back to top)](#table-of-contents)
 <!-- Drop that sweet sweet dictionary here-->
 
+| Feature                    | Datatype                | Definition   |
+|:---------------------------|:------------------------|:-------------|
+| parcelid                   | 55513 non-null: int64   |individual id for unique properties|
+| baths                      | 55513 non-null: float64 |# of bathrooms a property has|
+| beds                       | 55513 non-null: float64 |# of bedrooms a property has|
+| sqft                       | 55513 non-null: float64 |calculated square footage of home|
+| latitude                   | 55513 non-null: float64 |where the porperty is located in refrence to latitude|
+| longitude                  | 55513 non-null: float64 |where the porperty is located in refrence to  longitude|
+| lotsizesquarefeet          | 55513 non-null: float64 |the square footage of the land the propety resides on|
+| regionidcity               | 55513 non-null: object  |unique identifier for cities the property is in|
+| regionidzip                | 55513 non-null: object  |uniques identifier for the zip code the propert resides in|
+| year_built                 | 55513 non-null: float64 |year the property was built|
+| structuretaxvaluedollarcnt | 55513 non-null: float64 |the estimated tax value of the property itself|
+| tax_value                  | 55513 non-null: float64 |the estimated tax value of the property|
+| landtaxvaluedollarcnt      | 55513 non-null: float64 |the estimated tax value of the land the property is on|
+| tax_amount                 | 55513 non-null: float64 |How much the owner of the property must pay this year|
+| logerror                   | 55513 non-null: float64 |The target of this project (error produced in predictions)|
+| transactiondate            | 55513 non-null: object  |Date property was sold|
+| propertylandusedesc        | 55513 non-null: object  |What the property is listed as ex.(Single family)|
+| LA                         | 55513 non-null: uint8   |Whether or not the propert resides in LA county|
+| Orange                     | 55513 non-null: uint8   |Whether or not the propert resides in Orange county|
+| Ventura                    | 55513 non-null: uint8   |Whether or not the propert resides in Ventura county|
+| county                     | 55513 non-null: object  |The county the resident resides in|
+| acres                      | 55513 non-null: float64 |How many acres the property encompasses|
+
 # Data Science Pipeline
 [(Back to top)](#table-of-contents)
 <!-- Describe your Data Science Pipeline process -->
@@ -93,7 +118,7 @@ Performed the following on my acquired data.
     - bathroom count or bedroom count greater than 6 
     - bathroom coutnt or bedroom count less than 1 
     - properties with greater than 15 acres
-    - properties with a square footish above 10,000
+    - properties with a square footage above 10,000
 - Drops columns I have deemed irellivant
     - id because its a usless and duplicated
     - heatingorsystemtypeid because it was missing about 20k values to much to fill
