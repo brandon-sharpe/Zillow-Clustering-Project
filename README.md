@@ -84,12 +84,51 @@ Performed the following on my acquired data.
         - 275	Manufactured, Modular, Prefabricated Homes
         - 276	Patio Home
         - 279	Inferred Single Family Residential
-        
 - dropped the duplicated columns pulled over from the sql inquiry
-- removed outliers from
+- removed outliers by upper and lower iqr fences from
     - calculatedfinishedsquarefeet
     - bedroomcnt
     - bathroomcnt
+- Further removed outliers manually with the following conditions
+    - bathroom count or bedroom count greater than 6 
+    - bathroom coutnt or bedroom count less than 1 
+    - properties with greater than 15 acres
+    - properties with a square footish above 10,000
+- Drops columns I have deemed irellivant
+    - id because its a usless and duplicated
+    - heatingorsystemtypeid because it was missing about 20k values to much to fill
+    - heatingorsystemdesc because it was missing about 20k values to much to fill
+    - propertylandusetypeid is useless to me after the dropping irrelevant data earlier
+    - buildingqualitytypeid because it was missing about 20k values to much to fill
+    - rawcensustractandblock useless data to me
+    - unitcnt is useless to me after the dropping irrelevant data earlier
+    - propertyzoningdesc because it was missing about 20k values to much to fill
+    - censustractandblock isn't useful to me
+    - calculatedbathnbr data is inconsistent 
+    - finishedsquarefeet12 calculatedsquarefeet is a better metric
+    - fullbathcnt redundant to bathroom count
+    - assessmentyear values are all 2016
+    - propertylandusetypeid because the data was filtered already. 
+    - roomcnt because it is inconsistent with data
+- Created boolean columns for county
+- Replace fips with county column for exploration purposes.
+- Filled null values in the following columns
+    - year
+    - regionidcity with mode (want to possibly use this as a feature to determine price variation between cities)
+    - regionidzip with mode (same as above possibly more accurate than fips)
+- Dropped remaining null values
+-Created an Acres column. (Im assuming property size is relevant in log error, further exploration is needed.)
+- Renamed several columns for readability, may update more later.
+
+At this point our data has
+* *55513 rows*
+* *22 columns*
+
+We will now split our data into train, validate, and split.
+
+Time to explore
+
+
 
 ### Explore
 [(Back to top)](#table-of-contents)
