@@ -216,7 +216,7 @@ I could not beat baseline
 
 Our model was not able to beat the baseline rmse of .15 
 
-It scored an rmse of .178
+It scored an rmse of .161
 
 Our clusters where not benefiecal to the process with rfe putting almost every created cluster at the bottom
 

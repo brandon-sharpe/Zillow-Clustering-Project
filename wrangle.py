@@ -119,7 +119,7 @@ def remove_outliers_manually(df):
                (df.calculatedfinishedsquarefeet < 10000)&
                (df.taxvaluedollarcnt < 1_500_000))]
 
-def train_validate_test_split(df, target, seed=66):
+def train_validate_test_split(df, target, seed=6618):
     '''
     This function takes in a dataframe, the name of the target variable
     (for stratification purposes), and an integer for a setting a seed
@@ -251,6 +251,6 @@ def prep_zillow():
     df['abs_logerror']= df.logerror.abs()
     df['age']=2017-df.year_built
     # Splits data into train, validate, test, X_train, y_train, X_validate, y_validate, X_test, and y_test
-    train, validate, test = train_validate_test_split(df,'logerror', seed=66)
+    train, validate, test = train_validate_test_split(df,'logerror', seed=6618)
     return train, validate, test
 
