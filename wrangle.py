@@ -109,15 +109,15 @@ def get_counties(df):
 
 def remove_outliers_manually(df):
     '''
-    remove outliers in bed(less than zero), bath(less than zero), square feet, & acres
+    #remove outliers in bed(less than zero), bath(less than zero), square feet, & acres
     '''
 
     return df[((df.bathroomcnt <= 7) & (df.bedroomcnt <= 7) & 
                (df.bathroomcnt > 0) & 
                (df.bedroomcnt > 0) & 
                (df.acres < 15) &
-               (df.calculatedfinishedsquarefeet < 10000)
-              )]
+               (df.calculatedfinishedsquarefeet < 10000)&
+               (df.taxvaluedollarcnt < 1_500_000))]
 
 def train_validate_test_split(df, target, seed=66):
     '''
@@ -143,12 +143,24 @@ def train_validate_test_split(df, target, seed=66):
     X_test = test.drop(columns=[target])
     y_test = test[target]
     
-    return train, validate, test, X_train, y_train, X_validate, y_validate, X_test, y_test
+    return train, validate, test
+
+def xysplit(train,validate,test,target):
+    # split train into X (dataframe, drop target) & y (series, keep target only)
+    X_train = train.drop(columns=[target])
+    y_train = train[target]
+    
+    # split validate into X (dataframe, drop target) & y (series, keep target only)
+    X_validate = validate.drop(columns=[target])
+    y_validate = validate[target]
+    
+    # split test into X (dataframe, drop target) & y (series, keep target only)
+    X_test = test.drop(columns=[target])
+    y_test = test[target]
+    return X_train, y_train, X_validate, y_validate, X_test, y_test
 
 
-
-
-def prep_zillow(df):
+def prep_zillow():
     '''Removes all outlieirs from the function via remove_outliers and remove_outliers_2,
     drops all irelevant columns, drops items from column and rows with less than 50% value. Fills remaining null values, 
     Drops duplicated columns brought in from MySQL. '''
@@ -185,7 +197,10 @@ def prep_zillow(df):
             'id.1',
             'parcelid.2',
             'roomcnt',
-            'last_trans_date']
+            'last_trans_date',
+            'regionidcity',
+            'regionidzip',
+            'transactiondate']
     
     # Drops columns I have deemed irellivant
      # - id because its a usless and duplicated
@@ -211,10 +226,6 @@ def prep_zillow(df):
     
     # Filling nulls in yearbuilt with 2017
     df['yearbuilt'].fillna(2017, inplace = True)
-    # Fillin nulls in regioncityid with the mode, which leads the rest by almost 10k
-    df['regionidcity'].fillna(df.regionidcity.mode, inplace = True )
-    # Fillin nulls in regionidzip with the mode 63 values
-    df['regionidzip'].fillna(df.regionidzip.mode, inplace = True )
     # Dropped about a thousand values here no eal good way to determine land size
     df.dropna(subset=['lotsizesquarefeet'], inplace = True)
     # Drop remaining nulls
@@ -237,8 +248,9 @@ def prep_zillow(df):
                             'taxamount': 'tax_amount'
         
     })
-    
+    df['abs_logerror']= df.logerror.abs()
+    df['age']=2017-df.year_built
     # Splits data into train, validate, test, X_train, y_train, X_validate, y_validate, X_test, and y_test
-    train, validate, test, X_train, y_train, X_validate, y_validate, X_test, y_test = train_validate_test_split(df,'logerror', seed=66)
-    return train, validate, test, X_train, y_train, X_validate, y_validate, X_test, y_test
+    train, validate, test = train_validate_test_split(df,'logerror', seed=66)
+    return train, validate, test
 
