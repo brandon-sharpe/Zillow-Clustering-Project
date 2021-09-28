@@ -76,7 +76,7 @@ The clusters I created where ineffective given more time I'd like to do more eng
 # Data Science Pipeline
 [(Back to top)](#table-of-contents)
 <!-- Describe your Data Science Pipeline process -->
-Following best practices I documented my progress throughout the project and will provide quick summaries and thoughts here. For a further deep dive visit my (enter explore notebook here) & (enter final notebook here)
+Following best practices I documented my progress throughout the project and will provide quick summaries and thoughts here. For a further deep dive please visit my final notebook or take a look at the planning that took place for this project using trello (https://trello.com/b/HxywACZ5)
 
 ### Acquire
 [(Back to top)](#table-of-contents)
@@ -160,6 +160,14 @@ We will now split our data into train, validate, and split.
 ### Explore
 [(Back to top)](#table-of-contents)
 <!-- Describe your explore process -->
+Hypothesis: Location plays a role in log error
+
+Hypothesis: Age Plays a role in log error
+
+Hypothesis: Tax Value plays a role in log error
+
+
+
 Its time to Explore.
 ** I thought it may be more productive to use absolute log error for my product, Looking back this was a mistake as thats not what the original metric was.
 
@@ -252,4 +260,5 @@ You can recreate this project by downloading my wrangle, and explore and this no
 # Footer
 [(Back to top)](#table-of-contents)
 <!-- LET THEM KNOW WHO YOU ARE (linkedin links) close with a joke. -->
+
 If you have anyquestions please feel free to reach out to me.
