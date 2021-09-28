@@ -16,10 +16,15 @@ The Zestimate is a powerful tool used by zillow to predict the final sale price 
 # Executive Summary
 <!-- Add a demo for your project -->
 
-This is a place holder for when I have key takeaways and fingings
-I will also be placing the graphic that best represents my findings at the placeholder gif below. 
+Goal of this project was to find what was driving log error.
 
-![Random GIF](https://media.giphy.com/media/ZVik7pBtu9dNS/giphy.gif)
+I failed to beat the baseline model RMSE of .15
+
+My best model was a Tweedie Regressor with an RMSE of .178 on unseen data
+
+The clusters I created where ineffective given more time I'd like to do more engineering.
+
+
 
 # Table of contents
 <!-- Add a table of contents for your project -->
@@ -151,37 +156,101 @@ At this point our data has
 
 We will now split our data into train, validate, and split.
 
-Time to explore
-
-
 
 ### Explore
 [(Back to top)](#table-of-contents)
 <!-- Describe your explore process -->
+Its time to Explore.
+** I thought it may be more productive to use absolute log error for my product, Looking back this was a mistake as thats not what the original metric was.
 
+* Age appears tobe a driver of log error
+* As does Tax Value
+* longitude and latitude appear to be as well i would like to combine these.
+* Created a cluster combining latitutude and longitude does not seem to hold any value, stsastical test do not support the use 
+* Created another cluster of tax value and latitude, I wanted to see if more expensive houses along the cost created a higher mean log error. This proved to make non effective  clusters when driving for abs log error.
+* Created another cluster of age and tax value, I wanted to see the correlation of age and tax value on the abs log error. Proved to be ineffective. 
+    
 ### Model
 [(Back to top)](#table-of-contents)
 <!-- Describe your modeling process -->
+Created a rfe model to produce the best features selected all bt my clusters which where at the bottom. 
+
+Created a baseline
+RSME to beat: .15
+
+RMSE a OLS linear reagreation model
+Training/In-Sample:  0.153
+Validation/Out-of-Sample:  0.148
+This is a little to close to baseline
+
+RMSE Lasso/Lars linear reagreation model
+Training/In-Sample:  0.153
+Validation/Out-of-Sample:  0.148
+
+RMSE for TweedieRegressor
+Training/In-Sample:  0.153 
+Validation/Out-of-Sample:  0.148
+
+RMSE for 2nd Degree Polynomial
+Training/In-Sample:  0.153
+Validation/Out-of-Sample:  0.148
+
 
 ### Evaluate
 [(Back to top)](#table-of-contents)
 <!-- Describe your evaluation process -->
+Most of these models where within .0002 or less of each other.
+
+I chose to use the best perfoming model which was the TweedieRegressor
+
+Training/In-Sample:  0.15366958499394223 
+Validation/Out-of-Sample:  0.14833957151799354 
+Test/Out-of-Sample:  0.17824128316796917
+
+I could not beat baseline
 
 
 # Conclusion
 [(Back to top)](#table-of-contents)
 <!-- Wrap up with conclusions and takeaways -->
 
+Our model was not able to beat the baseline rmse of .15 
+
+It scored an rmse of .178
+
+Our clusters where not benefiecal to the process with rfe putting almost every created cluster at the bottom
+
+The following where the drivers rfe picked
+- 'LA',
+- 'Orange',
+- 'Ventura',
+- 'sqft_scaled',
+- 'beds_scaled',
+- 'baths_scaled',
+- 'year_built_scaled',
+- 'latitude_scaled',
+- 'longitude_scaled',
+- 'acres_scaled',
+- 'age_scaled',
+- 'structuretaxvaluedollarcnt_scaled'
+
+Moving foward my recommendation is to continue using the current models until such a time I can create substaintial clusters. 
 
 # Given More Time
 [(Back to top)](#table-of-contents)
 <!-- LET THEM KNOW WHAT YOU WISH YOU COULD HAVE DONE-->
 
+- I'd spend more time engineering effective clusters, maybe throwing more than 2 variables into a cluster at a time
+- I'd also like to break the models down to a per county bases and try to establish effective neighborhood clusters
+
+
 # Recreate This Project
 [(Back to top)](#table-of-contents)
 <!-- How can they do what you do?-->
+You can recreate this project by downloading my wrangle, and explore and this notebook and using your own env file to acess the sql database.
+
 
 # Footer
 [(Back to top)](#table-of-contents)
 <!-- LET THEM KNOW WHO YOU ARE (linkedin links) close with a joke. -->
-
+If you have anyquestions please feel free to reach out to me.
