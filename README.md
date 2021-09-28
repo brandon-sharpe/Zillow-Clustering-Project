@@ -20,7 +20,7 @@ Goal of this project was to find what was driving log error.
 
 I failed to beat the baseline model RMSE of .15
 
-My best model was a Tweedie Regressor with an RMSE of .178 on unseen data
+My best model was an OLS model with an RMSE of .161 on unseen data
 
 The clusters I created where ineffective given more time I'd like to do more engineering.
 
@@ -179,34 +179,33 @@ Created a baseline
 RSME to beat: .15
 
 RMSE a OLS linear reagreation model
-Training/In-Sample:  0.153
-Validation/Out-of-Sample:  0.148
+Training/In-Sample:  0.159
+Validation/Out-of-Sample:  0.149
 This is a little to close to baseline
 
 RMSE Lasso/Lars linear reagreation model
-Training/In-Sample:  0.153
-Validation/Out-of-Sample:  0.148
+Training/In-Sample:  0.159
+Validation/Out-of-Sample:  0.149
 
 RMSE for TweedieRegressor
-Training/In-Sample:  0.153 
-Validation/Out-of-Sample:  0.148
+Training/In-Sample:  0.159
+Validation/Out-of-Sample:  0.149
 
 RMSE for 2nd Degree Polynomial
-Training/In-Sample:  0.153
-Validation/Out-of-Sample:  0.148
-
+Training/In-Sample:  0.15
+Validation/Out-of-Sample:  0.149
 
 ### Evaluate
 [(Back to top)](#table-of-contents)
 <!-- Describe your evaluation process -->
 Most of these models where within .0002 or less of each other.
 
-I chose to use the best perfoming model which was the TweedieRegressor
+I chose to use the best perfoming model which was the OLS
 
-Training/In-Sample:  0.15366958499394223 
-Validation/Out-of-Sample:  0.14833957151799354 
-Test/Out-of-Sample:  0.17824128316796917
-
+RMSE for OLS Model
+Training/In-Sample:  0.1597255269835122 
+Validation/Out-of-Sample:  0.14950052346348475 
+Test/Out-of-Sample:  0.16146151424220911
 I could not beat baseline
 
 
